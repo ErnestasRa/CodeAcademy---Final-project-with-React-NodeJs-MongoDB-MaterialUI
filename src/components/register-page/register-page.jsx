@@ -19,6 +19,7 @@ const RegisterPageComponent = () => {
     const surnameRef = React.useRef()
     const emailRef = React.useRef()
     const passwordRef = React.useRef()
+    const passwordConfirmRef = React.useRef()
 
    async function registerUser() {
         const data = {
@@ -95,6 +96,18 @@ const RegisterPageComponent = () => {
                   id="password"
                   autoComplete="new-password"
                   inputRef={passwordRef}
+                />
+              </Grid>
+              <Grid item xs={12}>
+              <TextField
+                  required
+                  fullWidth
+                  name="passwordConfirm"
+                  label="Confirm Password"
+                  type="passwordConfirm"
+                  id="passwordConfirm"
+                  autoComplete="new-password"
+                  inputRef={passwordConfirmRef}
                 />
               </Grid>
             </Grid>

@@ -3,31 +3,19 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import CopyrightComponent from './copyright-component';
 
 const StickyFooter = () => {
   return (
     <>
       <CssBaseline />
       <Box
+        position={'fixed'}
         component="footer"
         sx={{
-          py: 3,
-          px: 2,
-          mt: '5vh',
+          left:0,
+          bottom:0,
+          right:0,
           backgroundColor: (theme) =>
             theme.palette.mode === 'light'
               ? theme.palette.grey[200]
@@ -36,9 +24,12 @@ const StickyFooter = () => {
       >
         <Container maxWidth="sm">
           <Typography variant="body1">
-            My sticky footer can be found here.
+            Ernestas Ragainis.
           </Typography>
-          <Copyright />
+          <CopyrightComponent 
+            link={'https://codeacademy.lt'}
+            text={'CodeAcademy'}
+          />
         </Container>
       </Box>
     </>

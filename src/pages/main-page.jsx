@@ -11,15 +11,15 @@ const MainPage = () => {
   return (
     <Container>
       <ResponsiveAppBar />
-        <Paper sx={{display:'flex', flexDirection: 'row', flexWrap: 'wrap', gap: 2, mt:'3vh'}}>
-          <PostComponent />
-          <PostComponent />
-          <PostComponent />
-          <PostComponent />
-          <PostComponent />
-          <PostComponent />
-          <PostComponent />
-        </Paper>
+          <Paper sx={{display:'flex', flexDirection: 'row', flexWrap: 'wrap', gap: 2, mt:'3vh'}}>
+            <PostComponent />
+            <PostComponent />
+            <PostComponent />
+            <PostComponent />
+            <PostComponent />
+            <PostComponent />
+
+          </Paper>
         <StickyFooter />
       </Container>
   )
