@@ -1,8 +1,8 @@
 import * as React from 'react'
-import RegisterPage from './pages/register-page';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import RegisterPage from './pages/auth/register-page';
+import LoginPage from './pages/auth/login-page'
 import MainPage from './pages/main-page';
-import LoginPage from './pages/login-page';
 
 function App() {
   return (

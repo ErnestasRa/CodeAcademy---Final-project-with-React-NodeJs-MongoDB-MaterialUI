@@ -1,8 +1,14 @@
-import React from 'react'
+import * as React from 'react'
+import {
+  Container,
+} from '@mui/material'
+import ResponsiveAppBar from '../components/app-bar'
 
 const MainPage = () => {
   return (
-    <div>MainPage</div>
+    <Container>
+      <ResponsiveAppBar />
+    </Container>
   )
 }
 
