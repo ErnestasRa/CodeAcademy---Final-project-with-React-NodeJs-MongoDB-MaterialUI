@@ -3,9 +3,9 @@ import {
   Container,
   Paper,
 } from '@mui/material'
-import ResponsiveAppBar from '../components/app-bar'
-import PostComponent from '../components/post-component'
-import StickyFooter from '../components/footer-component'
+import ResponsiveAppBar from '../../components/app-bar'
+import PostComponent from '../../components/post-component'
+import StickyFooter from '../../components/footer-component'
 
 const MainPage = () => {
   return (
@@ -18,7 +18,6 @@ const MainPage = () => {
             <PostComponent />
             <PostComponent />
             <PostComponent />
-
           </Paper>
         <StickyFooter />
       </Container>

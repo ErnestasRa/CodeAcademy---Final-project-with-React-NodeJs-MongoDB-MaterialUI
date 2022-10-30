@@ -2,9 +2,9 @@ import * as React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RegisterPage from './pages/auth/register-page';
 import LoginPage from './pages/auth/login-page'
-import MainPage from './pages/main-page';
-import ErrorPage from './pages/error-page';
-import AllUsers from './pages/all-users';
+import MainPage from './pages/global/main-page';
+import ErrorPage from './pages/global/error-page';
+import AllUsers from './pages/global/all-users'
 
 function App() {
   return (

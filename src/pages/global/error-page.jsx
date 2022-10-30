@@ -4,8 +4,8 @@ import {
     Paper,
     Typography,
 } from '@mui/material'
-import ResponsiveAppBar from '../components/app-bar'
-import StickyFooter from '../components/footer-component'
+import ResponsiveAppBar from '../../components/app-bar'
+import StickyFooter from '../../components/footer-component'
 
 const ErrorPage = () => {
   return (
