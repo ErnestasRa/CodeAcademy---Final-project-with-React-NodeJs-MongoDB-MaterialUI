@@ -8,7 +8,7 @@ import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
+import { red, blue } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Box, Button } from '@mui/material';
@@ -30,7 +30,7 @@ const PostComponent = ({firstName, lastName, image, tweet, likesCount, onClick})
     <Card sx={{ width: '70vh' }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+          <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
             {firstName.charAt(0)}
           </Avatar>
         }

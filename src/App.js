@@ -23,6 +23,7 @@ function App() {
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/error' element={<ErrorPage />} />
+          <Route path='/notloggedin' element={<ErrorPage />} />
           <Route path='/users' element={<AllUsers />} />
           <Route path='/createpost' element={<CreatePost />} />
           <Route path='/logout' element={<LogOut />} />
@@ -34,3 +35,7 @@ function App() {
 }
 
 export default App;
+
+
+
+// TODO: Profile Page, View tweet, Delete tweet, comment section, Likes count, 

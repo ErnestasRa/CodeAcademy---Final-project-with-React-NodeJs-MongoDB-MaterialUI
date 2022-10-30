@@ -24,9 +24,6 @@ const StickyFooter = () => {
         }}
       >
         <Container maxWidth="sm">
-          <Typography variant="body1">
-            Ernestas Ragainis.
-          </Typography>
           <CopyrightComponent 
             link={'https://codeacademy.lt'}
             text={'CodeAcademy'}

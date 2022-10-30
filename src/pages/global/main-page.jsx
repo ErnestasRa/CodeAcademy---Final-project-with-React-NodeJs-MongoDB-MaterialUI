@@ -21,7 +21,7 @@ const MainPage = () => {
 
   const viewSingleTweet = (id) => {
     localStorage.setItem('id', id)
-    navigate('/singletweet')
+    navigate('/singletweet/')
   }
   
   React.useEffect(() => {

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import {
-  Box, Container, Paper,
+  Container,
+  Paper,
 } from '@mui/material'
 import SingleTweetComponent from '../../components/tweets/single-tweet'
 import { post } from '../../functions/http'
@@ -10,8 +11,8 @@ import StickyFooter from '../../components/footer-component'
 import MainContext from '../../context/main-context'
 
 const SingleTweet = () => {
-  const {singleTweet, setSingleTweet} = React.useContext(MainContext)
   const tweetId = localStorage.getItem('id')
+  const {singleTweet, setSingleTweet} = React.useContext(MainContext)
   const navigate = useNavigate()
 
   const getSingleTweetData = async () => {
@@ -24,10 +25,8 @@ const SingleTweet = () => {
     if(!res.error){
       setSingleTweet(res.data)
     } else {
-      navigate('/error')
+      navigate('/notloggedin')
     }
-
-    console.log(singleTweet)
   }
 
   React.useEffect(() => {
@@ -37,8 +36,12 @@ const SingleTweet = () => {
   return (
     <Container>
         <ResponsiveAppBar />
-            <Paper>
-                 <SingleTweetComponent />
+            <Paper sx={{display:'flex', flexDirection: 'column', flexWrap: 'wrap', gap: 2, mt:'3vh', justifyContent:'center', alignItems:'center'}}>
+                <SingleTweetComponent 
+                  firstName={singleTweet.firstName}
+                  image={singleTweet.image}
+                  tweet={singleTweet.tweet}
+                />
             </Paper>  
         <StickyFooter />
     </Container>
