@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import * as React from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import {
   Avatar,
   Button,
@@ -12,31 +12,31 @@ import {
   Container,
   Checkbox,
   FormControlLabel,
-} from '@mui/material'
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { post } from '../../functions/http';
-import { useNavigate } from 'react-router-dom';
+} from "@mui/material";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { post } from "../../functions/http";
+import { useNavigate } from "react-router-dom";
 const theme = createTheme();
 
 const LoginPageComponent = () => {
-  const emailRef = React.useRef()
-  const passwordRef = React.useRef()
-  const navigate = useNavigate()
+  const emailRef = React.useRef();
+  const passwordRef = React.useRef();
+  const navigate = useNavigate();
 
   const loginUser = async () => {
     const userLoginData = {
       email: emailRef.current.value,
       password: passwordRef.current.value,
-    }
-    const res = await post('login', userLoginData)
-   
-    if(!res.error){
-      navigate('/')
+    };
+    const res = await post("login", userLoginData);
+
+    if (!res.error) {
+      navigate("/");
     } else {
-      throw new Error(res.error)
+      throw new Error(res.error);
     }
-  }
-  
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -44,12 +44,12 @@ const LoginPageComponent = () => {
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -102,6 +102,6 @@ const LoginPageComponent = () => {
       </Container>
     </ThemeProvider>
   );
-}
+};
 
-export default LoginPageComponent
+export default LoginPageComponent;

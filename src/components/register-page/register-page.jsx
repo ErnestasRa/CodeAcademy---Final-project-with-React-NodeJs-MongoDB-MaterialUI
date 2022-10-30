@@ -1,45 +1,45 @@
-import * as React from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import * as React from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import {
-    Avatar,
-    Button,
-    CssBaseline,
-    TextField,
-    Link,
-    Grid,
-    Box,
-    Typography,
-    Container
-} from '@mui/material'
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { get, post } from '../../functions/http'
-import { useNavigate } from 'react-router-dom';
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Link,
+  Grid,
+  Box,
+  Typography,
+  Container,
+} from "@mui/material";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { get, post } from "../../functions/http";
+import { useNavigate } from "react-router-dom";
 const theme = createTheme();
 
 const RegisterPageComponent = () => {
-    const nameRef = React.useRef()
-    const surnameRef = React.useRef()
-    const emailRef = React.useRef()
-    const passwordRef = React.useRef()
-    const passwordConfirmRef = React.useRef()
-    const navigate = useNavigate()
+  const nameRef = React.useRef();
+  const surnameRef = React.useRef();
+  const emailRef = React.useRef();
+  const passwordRef = React.useRef();
+  const passwordConfirmRef = React.useRef();
+  const navigate = useNavigate();
 
-   const registerUser = async () => {
-        const data = {
-            name: nameRef.current.value,
-            surname: surnameRef.current.value,
-            email: emailRef.current.value,
-            password: passwordRef.current.value,
-            confirmPassword: passwordConfirmRef.current.value,
-        }
+  const registerUser = async () => {
+    const data = {
+      name: nameRef.current.value,
+      surname: surnameRef.current.value,
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+      confirmPassword: passwordConfirmRef.current.value,
+    };
 
-        const res = await post('register', data)
-        console.log(res)
+    const res = await post("register", data);
+    console.log(res);
 
-        if(!res.error) {
-          navigate('/login')
-        }
-   } 
+    if (!res.error) {
+      navigate("/login");
+    }
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -48,12 +48,12 @@ const RegisterPageComponent = () => {
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -108,7 +108,7 @@ const RegisterPageComponent = () => {
                 />
               </Grid>
               <Grid item xs={12}>
-              <TextField
+                <TextField
                   required
                   fullWidth
                   name="passwordConfirm"
@@ -141,6 +141,6 @@ const RegisterPageComponent = () => {
       </Container>
     </ThemeProvider>
   );
-}
+};
 
-export default RegisterPageComponent
+export default RegisterPageComponent;

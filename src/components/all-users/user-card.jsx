@@ -1,28 +1,23 @@
-import * as React from 'react';
+import * as React from "react";
 import {
-    Card,
-    CardActions,
-    CardContent,
-    CardMedia,
-    Button,
-    Typography
-} from '@mui/material'
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Button,
+  Typography,
+} from "@mui/material";
 
-const UserProfileCard = ({image, firstName, lastName, email}) => {
+const UserProfileCard = ({ image, firstName, lastName, email }) => {
   return (
-    <Card sx={{ display: 'flex', flexDirection:'column', width:'20vh' }}>
-      <CardMedia
-        component="img"
-        height="140"
-        image={image}
-        alt="none"
-      />
+    <Card sx={{ display: "flex", flexDirection: "column", width: "20vh" }}>
+      <CardMedia component="img" height="140" image={image} alt="none" />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {firstName} {lastName}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-         {email}
+          {email}
         </Typography>
       </CardContent>
       <CardActions>
@@ -30,6 +25,6 @@ const UserProfileCard = ({image, firstName, lastName, email}) => {
       </CardActions>
     </Card>
   );
-}
+};
 
-export default UserProfileCard
+export default UserProfileCard;

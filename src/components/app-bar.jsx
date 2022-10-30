@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   AppBar,
   Box,
@@ -11,11 +11,11 @@ import {
   Button,
   Tooltip,
   MenuItem,
-  Link
-} from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import { get } from '../functions/http';
+  Link,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import { get } from "../functions/http";
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -39,25 +39,25 @@ function ResponsiveAppBar() {
   };
 
   const getNavBarItems = async () => {
-    const res = await get('navbarnot')
-    setNavBarItems(res)
-   }
+    const res = await get("navbarnot");
+    setNavBarItems(res);
+  };
 
   const getNavBarSettings = async () => {
-    const res = await get('navbarsettings')
-    setNavBarSettings(res)
-  } 
+    const res = await get("navbarsettings");
+    setNavBarSettings(res);
+  };
 
   React.useEffect(() => {
-    getNavBarItems()
-    getNavBarSettings()
-  }, []) 
+    getNavBarItems();
+    getNavBarSettings();
+  }, []);
 
   return (
-    <AppBar position="sticky" sx={{mt: '2vh'}}>
+    <AppBar position="sticky" sx={{ mt: "2vh" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <TwitterIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <TwitterIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -65,18 +65,18 @@ function ResponsiveAppBar() {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
             }}
           >
             Budget Twitter
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -91,18 +91,18 @@ function ResponsiveAppBar() {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: "block", md: "none" },
               }}
             >
               {navbarItems.map((page, i) => (
@@ -114,7 +114,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <TwitterIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <TwitterIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -122,27 +122,27 @@ function ResponsiveAppBar() {
             href=""
             sx={{
               mr: 2,
-              display: { xs: 'flex', md: 'none' },
+              display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
             }}
           >
             Budget Twitter
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {navbarItems.map((page, i) => (
-            <Link href={page.to} key={i + 1}>
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page.name}
-              </Button>
-            </Link> 
+              <Link href={page.to} key={i + 1}>
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  {page.name}
+                </Button>
+              </Link>
             ))}
           </Box>
 
@@ -153,27 +153,27 @@ function ResponsiveAppBar() {
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: "45px" }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
               {navBarSettings.map((setting, i) => (
-               <Link href={setting.to} key={i + 1}>
+                <Link href={setting.to} key={i + 1}>
                   <MenuItem onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">{setting.name}</Typography>
                   </MenuItem>
-                </Link>  
+                </Link>
               ))}
             </Menu>
           </Box>
