@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { Box, Button } from '@mui/material';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -23,35 +24,28 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const PostComponent = () => {
+const PostComponent = ({firstName, lastName, image, tweet, likesCount, onClick}) => {
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ width: '70vh' }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+            {firstName.charAt(0)}
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={firstName}
+        subheader={lastName}
       />
       <CardMedia
         component="img"
         height="194"
-        image="/static/images/cards/paella.jpg"
-        alt="Paella dish"
+        image={image}
+        alt="none"
       />
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+        <Typography variant="body2">
+         {tweet}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -59,8 +53,14 @@ const PostComponent = () => {
           <FavoriteIcon />
         </IconButton>
         <Typography color="text.secondary">
-            Likes count: 
+            Likes count: {likesCount}
         </Typography>
+        <Box>
+          <Button
+           onClick={onClick} 
+          >View tweet
+          </Button>
+        </Box>
       </CardActions>
     </Card>
   );

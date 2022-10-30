@@ -5,14 +5,21 @@ import {
     Box
 } from '@mui/material'
 import { get } from '../../functions/http'
-import UserProfileCard from '../user-card'
+import UserProfileCard from './user-card'
+import { useNavigate } from 'react-router-dom'
+import MainContext from '../../context/main-context'
 
 const AllUsersComponent = () => {
-  const [users, setUsers] = React.useState([])
-  
+  const {users, setUsers} = React.useContext(MainContext)
+  const navigate = useNavigate()
+
   const getAllUsers = async () => {
     const res = await get('allusers')
-    setUsers(res)
+    if(!res.error){
+      setUsers(res)
+    } else {
+      navigate('/error')
+    }
   }
 
   React.useEffect(() => {

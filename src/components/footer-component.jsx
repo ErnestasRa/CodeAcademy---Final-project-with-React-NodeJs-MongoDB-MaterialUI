@@ -10,12 +10,13 @@ const StickyFooter = () => {
     <>
       <CssBaseline />
       <Box
-        position={'fixed'}
+        position={'static'}
         component="footer"
         sx={{
           left:0,
           bottom:0,
           right:0,
+          mt: '3vh',
           backgroundColor: (theme) =>
             theme.palette.mode === 'light'
               ? theme.palette.grey[200]
