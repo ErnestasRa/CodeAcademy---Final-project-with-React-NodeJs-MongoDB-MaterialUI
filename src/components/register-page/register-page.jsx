@@ -12,6 +12,8 @@ import {
     Container
 } from '@mui/material'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { get, post } from '../../functions/http'
+import { useNavigate } from 'react-router-dom';
 const theme = createTheme();
 
 const RegisterPageComponent = () => {
@@ -20,16 +22,23 @@ const RegisterPageComponent = () => {
     const emailRef = React.useRef()
     const passwordRef = React.useRef()
     const passwordConfirmRef = React.useRef()
+    const navigate = useNavigate()
 
-   async function registerUser() {
+   const registerUser = async () => {
         const data = {
             name: nameRef.current.value,
             surname: surnameRef.current.value,
             email: emailRef.current.value,
-            password: passwordRef.current.value
+            password: passwordRef.current.value,
+            confirmPassword: passwordConfirmRef.current.value,
         }
 
-        console.log(data)
+        const res = await post('register', data)
+        console.log(res)
+
+        if(!res.error) {
+          navigate('/login')
+        }
    } 
 
   return (
@@ -104,7 +113,7 @@ const RegisterPageComponent = () => {
                   fullWidth
                   name="passwordConfirm"
                   label="Confirm Password"
-                  type="passwordConfirm"
+                  type="password"
                   id="passwordConfirm"
                   autoComplete="new-password"
                   inputRef={passwordConfirmRef}

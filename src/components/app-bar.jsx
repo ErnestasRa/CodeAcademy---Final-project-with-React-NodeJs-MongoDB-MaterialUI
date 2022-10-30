@@ -1,23 +1,27 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  Avatar,
+  Button,
+  Tooltip,
+  MenuItem,
+  Link
+} from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import { Link } from '@mui/material';
-import { pages, settings } from '../components/app-bar/links'
+import { get } from '../functions/http';
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [navbarItems, setNavBarItems] = React.useState([]);
+  const [navBarSettings, setNavBarSettings] = React.useState([]);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -33,6 +37,23 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const getNavBarItems = async () => {
+    const res = await get('navbarnot')
+    console.log(res)
+    setNavBarItems(res)
+   }
+
+  const getNavBarSettings = async () => {
+    const res = await get('navbarsettings')
+    setNavBarSettings(res)
+  } 
+
+  React.useEffect(() => {
+    getNavBarItems()
+    getNavBarSettings()
+  }, []) 
+
 
   return (
     <AppBar position="sticky">
@@ -86,7 +107,7 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page, i) => (
+              {navbarItems.map((page, i) => (
                 <Link href={page.to} key={i + 1}>
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page.name}</Typography>
@@ -115,7 +136,7 @@ function ResponsiveAppBar() {
             Budget Twitter
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page, i) => (
+            {navbarItems.map((page, i) => (
             <Link href={page.to} key={i + 1}>
               <Button
                 onClick={handleCloseNavMenu}
@@ -149,7 +170,7 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting, i) => (
+              {navBarSettings.map((setting, i) => (
                <Link href={setting.to} key={i + 1}>
                   <MenuItem onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">{setting.name}</Typography>

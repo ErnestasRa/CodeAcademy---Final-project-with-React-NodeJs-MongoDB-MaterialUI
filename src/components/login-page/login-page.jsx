@@ -14,18 +14,29 @@ import {
   FormControlLabel,
 } from '@mui/material'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { post } from '../../functions/http';
+import { useNavigate } from 'react-router-dom';
 const theme = createTheme();
 
 const LoginPageComponent = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+  const emailRef = React.useRef()
+  const passwordRef = React.useRef()
+  const navigate = useNavigate()
 
+  const loginUser = async () => {
+    const userLoginData = {
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    }
+    const res = await post('login', userLoginData)
+   
+    if(!res.error){
+      navigate('/')
+    } else {
+      throw new Error(res.error)
+    }
+  }
+  
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -44,7 +55,7 @@ const LoginPageComponent = () => {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -54,6 +65,7 @@ const LoginPageComponent = () => {
               name="email"
               autoComplete="email"
               autoFocus
+              inputRef={emailRef}
             />
             <TextField
               margin="normal"
@@ -64,16 +76,17 @@ const LoginPageComponent = () => {
               type="password"
               id="password"
               autoComplete="current-password"
+              inputRef={passwordRef}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
             <Button
-              type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={loginUser}
             >
               Sign In
             </Button>

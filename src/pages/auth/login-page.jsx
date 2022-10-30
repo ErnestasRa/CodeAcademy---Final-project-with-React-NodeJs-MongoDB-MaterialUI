@@ -13,7 +13,7 @@ const LoginPage = () => {
         <ResponsiveAppBar />
         <LoginPageComponent />
       </Container>
-    <StickyFooter />
+     <StickyFooter />
     </>
   )
 }
