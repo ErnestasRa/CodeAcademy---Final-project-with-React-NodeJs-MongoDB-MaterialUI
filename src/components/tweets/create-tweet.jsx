@@ -29,7 +29,7 @@ const CreatePostComponent = () => {
 
   return (
     <Container>
-        <Paper sx={{display:'flex', flexDirection: 'column', justifyContent:'center', alignItems:'center', height: '100vh', gap: 2}}>
+        <Paper sx={{display:'flex', flexDirection: 'column', justifyContent:'center', alignItems:'center', height: '30vh', gap: 2}}>
            <TextField id="standard-basic" inputRef={tweetRef} label="Tweet" variant="standard" />
            <TextField id="standard-basic" inputRef={imageRef} label="Image" variant="standard" />
            <Button onClick={createTweet}>Tweet</Button>

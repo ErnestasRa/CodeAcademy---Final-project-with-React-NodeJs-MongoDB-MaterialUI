@@ -39,6 +39,7 @@ const MainPage = () => {
               lastName={tweet.lastName}
               likesCount={tweet.likes}
               tweet={tweet.tweet}
+              email={tweet.email}
               onClick={() => viewSingleTweet(tweet._id)}
               key={i}
             />

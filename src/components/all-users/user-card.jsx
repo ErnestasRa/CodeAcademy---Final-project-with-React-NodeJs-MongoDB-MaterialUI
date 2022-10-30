@@ -10,7 +10,7 @@ import {
 
 const UserProfileCard = ({image, firstName, lastName, email}) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ display: 'flex', flexDirection:'column', width:'20vh' }}>
       <CardMedia
         component="img"
         height="140"
@@ -26,8 +26,7 @@ const UserProfileCard = ({image, firstName, lastName, email}) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button size="small">View profile</Button>
       </CardActions>
     </Card>
   );

@@ -24,7 +24,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const PostComponent = ({firstName, lastName, image, tweet, likesCount, onClick}) => {
+const PostComponent = ({firstName, lastName, image, tweet, likesCount, onClick, email}) => {
 
   return (
     <Card sx={{ width: '70vh' }}>
@@ -34,8 +34,8 @@ const PostComponent = ({firstName, lastName, image, tweet, likesCount, onClick})
             {firstName.charAt(0)}
           </Avatar>
         }
-        title={firstName}
-        subheader={lastName}
+        title={`${firstName} ${lastName}`}
+        subheader={email}
       />
       <CardMedia
         component="img"

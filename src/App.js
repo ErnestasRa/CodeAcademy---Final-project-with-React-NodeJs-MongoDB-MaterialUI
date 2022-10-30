@@ -9,21 +9,35 @@ import CreatePost from './pages/global/create-tweet';
 import LogOut from './pages/global/log-out';
 import SingleTweet from './pages/global/single-tweet';
 import MainContext from '../src/context/main-context'
+import NotLoggedIn from './pages/global/not-logged-in';
 
 function App() {
   const [singleTweet, setSingleTweet] = React.useState([])
   const [tweets, setTweets] = React.useState([])
   const [users, setUsers] = React.useState([])
+  const [toggle, setToggle] = React.useState('none')
+  const [tweetComments, setTweetComments] = React.useState([])
 
   return (
-   <MainContext.Provider value={{tweets, setTweets, singleTweet, setSingleTweet, users, setUsers}}>
+   <MainContext.Provider value={{
+     setTweets,
+     setSingleTweet,
+     setUsers,
+     setToggle,
+     setTweetComments,
+      tweets,
+      singleTweet,
+      users,
+      toggle,
+      tweetComments,
+           }}>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<MainPage />}/>
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/error' element={<ErrorPage />} />
-          <Route path='/notloggedin' element={<ErrorPage />} />
+          <Route path='/notloggedin' element={<NotLoggedIn />} />
           <Route path='/users' element={<AllUsers />} />
           <Route path='/createpost' element={<CreatePost />} />
           <Route path='/logout' element={<LogOut />} />

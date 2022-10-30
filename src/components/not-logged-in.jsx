@@ -8,7 +8,7 @@ import {
 const NotLoggedInComponent = () => {
   return (
     <Box>
-        <Typography variant='h2'>
+        <Typography variant='h5'>
             You need to be logged in to view this content. Sign in <Link href='/login'>here</Link>
         </Typography>
     </Box>
