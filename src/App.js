@@ -3,13 +3,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RegisterPage from "./pages/auth/register-page";
 import LoginPage from "./pages/auth/login-page";
 import MainPage from "./pages/global/main-page";
-import ErrorPage from "./pages/global/error-page";
+import ErrorPage from "./pages/errors/error-page";
 import AllUsers from "./pages/global/users/all-users";
-import CreatePost from "./pages/global/create-tweet";
-import LogOut from "./pages/global/log-out";
-import SingleTweet from "./pages/global/single-tweet";
+import CreatePost from "./pages/global/tweets/create-tweet";
+import LogOut from "./pages/errors/log-out";
+import SingleTweet from "./pages/global/tweets/single-tweet";
 import MainContext from "../src/context/main-context";
-import NotLoggedIn from "./pages/global/not-logged-in";
+import NotLoggedIn from "./pages/errors/not-logged-in";
 import UserProfile from "./pages/global/users/user-profile-page";
 
 function App() {

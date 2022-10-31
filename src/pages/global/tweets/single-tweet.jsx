@@ -1,14 +1,14 @@
 import { Container, Paper } from "@mui/material";
 import * as React from "react";
-import ResponsiveAppBar from "../../components/app-bar";
-import CreatePostComponent from "../../components/tweets/create-tweet";
-import StickyFooter from "../../components/footer-component";
+import ResponsiveAppBar from "../../../components/app-bar";
+import StickyFooter from "../../../components/footer-component";
+import SingleTweet from "../../../components/tweets/single-tweet-component";
 
 const CreatePost = () => {
   return (
     <Container>
       <ResponsiveAppBar />
-      <CreatePostComponent />
+      <SingleTweet />
       <StickyFooter />
     </Container>
   );
