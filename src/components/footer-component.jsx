@@ -10,7 +10,7 @@ const StickyFooter = () => {
     <>
       <CssBaseline />
       <Box
-        position={"fixed"}
+        position={"relative"}
         component="footer"
         sx={{
           left: 0,

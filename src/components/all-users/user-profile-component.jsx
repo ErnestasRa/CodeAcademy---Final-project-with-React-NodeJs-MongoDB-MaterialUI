@@ -19,7 +19,6 @@ const UserProfileComponent = () => {
 
   const getUserProfileInfo = async () => {
     const res = await get("loggedinuser");
-    console.log(res);
     if (!res.error) {
       setUserProfile(res.data.loggedInUser);
       setUserProfileTweets(res.data.loggedInUserPosts);
@@ -31,6 +30,7 @@ const UserProfileComponent = () => {
   const changeUserProfilePic = async () => {
     const newPicUrl = {
       url: urlRef.current.value,
+      userId: userProfile._id,
     };
 
     const res = await post("newprofilepic", newPicUrl);

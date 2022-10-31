@@ -32,6 +32,7 @@ const PostComponent = ({
   likesCount,
   onClick,
   email,
+  userImage,
 }) => {
   return (
     <Card sx={{ width: "70vh" }}>

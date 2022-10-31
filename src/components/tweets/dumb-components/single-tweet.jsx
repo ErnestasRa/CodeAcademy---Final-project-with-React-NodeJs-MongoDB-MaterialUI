@@ -12,6 +12,7 @@ const SingleTweetComponent = ({
   lastName,
   tweet,
   onClick,
+  likeComment,
 }) => {
   return (
     <Card sx={{ width: "70vh" }}>
@@ -45,7 +46,9 @@ const SingleTweetComponent = ({
         <Button size="small" onClick={onClick}>
           Add comment
         </Button>
-        <Button size="small">Like</Button>
+        <Button size="small" onClick={() => likeComment()}>
+          Like
+        </Button>
       </CardActions>
     </Card>
   );

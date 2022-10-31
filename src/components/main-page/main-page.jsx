@@ -14,6 +14,8 @@ const MainPageComponent = () => {
     setTweets(res);
   };
 
+  console.log(tweets);
+
   const viewSingleTweet = (id) => {
     localStorage.setItem("id", id);
     navigate("/singletweet/");
