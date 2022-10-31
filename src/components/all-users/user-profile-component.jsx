@@ -34,7 +34,6 @@ const UserProfileComponent = () => {
     };
 
     const res = await post("newprofilepic", newPicUrl);
-    console.log(res);
   };
 
   const toggleVisibility = () => {
