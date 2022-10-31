@@ -7,8 +7,8 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import SingleTweetComponent from "../../components/tweets/single-tweet";
-import { get, post } from "../../functions/http";
+import SingleTweetComponent from "../../components/tweets/dumb-components/single-tweet";
+import { post } from "../../functions/http";
 import { useNavigate } from "react-router-dom";
 import ResponsiveAppBar from "../../components/app-bar";
 import StickyFooter from "../../components/footer-component";

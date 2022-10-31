@@ -8,10 +8,18 @@ import {
   Typography,
 } from "@mui/material";
 
-const UserProfileCard = ({ image, firstName, lastName, email }) => {
+const UsersCard = ({ image, firstName, lastName, email }) => {
   return (
-    <Card sx={{ display: "flex", flexDirection: "column", width: "20vh" }}>
-      <CardMedia component="img" height="140" image={image} alt="none" />
+    <Card
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        width: "30vh",
+        height: "40vh",
+        mt: "10vh",
+      }}
+    >
+      <CardMedia component="img" height="200vh" image={image} alt="none" />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {firstName} {lastName}
@@ -27,4 +35,4 @@ const UserProfileCard = ({ image, firstName, lastName, email }) => {
   );
 };
 
-export default UserProfileCard;
+export default UsersCard;

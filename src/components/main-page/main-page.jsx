@@ -1,9 +1,7 @@
 import * as React from "react";
 import { Container, Paper } from "@mui/material";
-import ResponsiveAppBar from "../../components/app-bar";
-import PostComponent from "../../components/tweets/post-component";
-import StickyFooter from "../../components/footer-component";
-import { get, post } from "../../functions/http";
+import PostComponent from "../../components/tweets/dumb-components/post-component";
+import { get } from "../../functions/http";
 import { useNavigate } from "react-router-dom";
 import MainContext from "../../context/main-context";
 

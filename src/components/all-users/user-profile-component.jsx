@@ -1,21 +1,47 @@
 import * as React from "react";
-import { get } from "../../functions/http";
+import { get, post } from "../../functions/http";
 import MainContext from "../../context/main-context";
-import UserProfileCard from "./user-card";
-import { Container, Paper } from "@mui/material";
+import UserProfileCard from "./dumb-components/user-profile";
+import { Box, Container, Paper, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const UserProfileComponent = () => {
-  const { setUserProfile, userProfile } = React.useContext(MainContext);
+  const urlRef = React.useRef();
+  const {
+    setUserProfile,
+    setUserProfileTweets,
+    setToggle,
+    userProfile,
+    userProfileTweets,
+    toggle,
+  } = React.useContext(MainContext);
   const navigate = useNavigate();
 
   const getUserProfileInfo = async () => {
     const res = await get("loggedinuser");
     console.log(res);
     if (!res.error) {
-      setUserProfile(res.data);
+      setUserProfile(res.data.loggedInUser);
+      setUserProfileTweets(res.data.loggedInUserPosts);
     } else {
       navigate("/notloggedin");
+    }
+  };
+
+  const changeUserProfilePic = async () => {
+    const newPicUrl = {
+      url: urlRef.current.value,
+    };
+
+    const res = await post("newprofilepic", newPicUrl);
+    console.log(res);
+  };
+
+  const toggleVisibility = () => {
+    if (toggle === "visible") {
+      setToggle("none");
+    } else {
+      setToggle("visible");
     }
   };
 
@@ -33,7 +59,22 @@ const UserProfileComponent = () => {
           firstName={userProfile.firstName}
           image={userProfile.image}
           lastName={userProfile.lastName}
+          onClick={() => toggleVisibility()}
+          inputRef={urlRef}
+          changeUserProfilePic={() => changeUserProfilePic()}
         />
+      </Paper>
+      <Paper>
+        <Box>
+          User tweets:
+          {userProfileTweets.map((tweet, i) => {
+            return (
+              <Box key={i}>
+                <Typography>{tweet.tweet}</Typography>
+              </Box>
+            );
+          })}
+        </Box>
       </Paper>
     </Container>
   );

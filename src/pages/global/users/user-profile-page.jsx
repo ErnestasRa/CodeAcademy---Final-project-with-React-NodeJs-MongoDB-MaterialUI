@@ -1,5 +1,4 @@
-import { Paper } from "@mui/material";
-import { Container } from "@mui/system";
+import { Paper, Container } from "@mui/material";
 import React from "react";
 import UserProfileComponent from "../../../components/all-users/user-profile-component";
 import ResponsiveAppBar from "../../../components/app-bar";

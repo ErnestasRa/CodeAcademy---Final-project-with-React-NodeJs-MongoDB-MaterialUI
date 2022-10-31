@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Container, Paper } from "@mui/material";
 import { get } from "../../functions/http";
-import UserProfileCard from "./user-card";
 import { useNavigate } from "react-router-dom";
 import MainContext from "../../context/main-context";
+import UsersCard from "./dumb-components/user-card";
 
 const AllUsersComponent = () => {
   const { users, setUsers } = React.useContext(MainContext);
@@ -24,10 +24,20 @@ const AllUsersComponent = () => {
 
   return (
     <Container>
-      <Paper sx={{ display: "flex", flexDirection: "row", gap: 2, mt: "5vh" }}>
+      <Paper
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          gap: 2,
+          mt: "5vh",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         {users.map((user, i) => {
           return (
-            <UserProfileCard
+            <UsersCard
               email={user.email}
               firstName={user.firstName}
               image={user.image}
