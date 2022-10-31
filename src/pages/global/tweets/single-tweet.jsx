@@ -1,4 +1,4 @@
-import { Container, Paper } from "@mui/material";
+import { Container } from "@mui/material";
 import * as React from "react";
 import ResponsiveAppBar from "../../../components/app-bar";
 import StickyFooter from "../../../components/footer-component";

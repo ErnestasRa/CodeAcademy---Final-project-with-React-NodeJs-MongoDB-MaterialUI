@@ -2,7 +2,7 @@ import * as React from "react";
 import { get, post } from "../../functions/http";
 import MainContext from "../../context/main-context";
 import UserProfileCard from "./dumb-components/user-profile";
-import { Box, Container, Paper, Typography } from "@mui/material";
+import { Box, Button, Container, Paper, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const UserProfileComponent = () => {
@@ -65,11 +65,11 @@ const UserProfileComponent = () => {
       </Paper>
       <Paper>
         <Box>
-          User tweets:
+          User tweets ({userProfileTweets.length}):
           {userProfileTweets.map((tweet, i) => {
             return (
               <Box key={i}>
-                <Typography>{tweet.tweet}</Typography>
+                <Typography variant="overline">{tweet.tweet}</Typography>
               </Box>
             );
           })}

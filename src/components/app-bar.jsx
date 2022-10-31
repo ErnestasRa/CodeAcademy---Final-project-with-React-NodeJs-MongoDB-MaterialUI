@@ -23,21 +23,6 @@ function ResponsiveAppBar() {
   const [navbarItems, setNavBarItems] = React.useState([]);
   const [navBarSettings, setNavBarSettings] = React.useState([]);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   const getNavBarItems = async () => {
     const res = await get("navbarnot");
     setNavBarItems(res);
@@ -82,7 +67,7 @@ function ResponsiveAppBar() {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={(e) => setAnchorElNav(e.currentTarget)}
               color="inherit"
             >
               <MenuIcon />
@@ -100,14 +85,14 @@ function ResponsiveAppBar() {
                 horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+              onClose={() => setAnchorElNav(null)}
               sx={{
                 display: { xs: "block", md: "none" },
               }}
             >
               {navbarItems.map((page, i) => (
                 <Link href={page.to} key={i + 1}>
-                  <MenuItem onClick={handleCloseNavMenu}>
+                  <MenuItem onClick={() => setAnchorElNav(null)}>
                     <Typography textAlign="center">{page.name}</Typography>
                   </MenuItem>
                 </Link>
@@ -137,7 +122,7 @@ function ResponsiveAppBar() {
             {navbarItems.map((page, i) => (
               <Link href={page.to} key={i + 1}>
                 <Button
-                  onClick={handleCloseNavMenu}
+                  onClick={() => setAnchorElNav(null)}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   {page.name}
@@ -148,7 +133,10 @@ function ResponsiveAppBar() {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton
+                onClick={(e) => setAnchorElUser(e.currentTarget)}
+                sx={{ p: 0 }}
+              >
                 <Avatar alt="Remy Sharp" src="" />
               </IconButton>
             </Tooltip>
@@ -166,11 +154,11 @@ function ResponsiveAppBar() {
                 horizontal: "right",
               }}
               open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
+              onClose={() => setAnchorElUser(null)}
             >
               {navBarSettings.map((setting, i) => (
                 <Link href={setting.to} key={i + 1}>
-                  <MenuItem onClick={handleCloseUserMenu}>
+                  <MenuItem onClick={() => setAnchorElUser(null)}>
                     <Typography textAlign="center">{setting.name}</Typography>
                   </MenuItem>
                 </Link>
