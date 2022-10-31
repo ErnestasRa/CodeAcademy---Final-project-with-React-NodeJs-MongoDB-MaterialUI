@@ -8,9 +8,7 @@ const CreatePost = () => {
   return (
     <Container>
       <ResponsiveAppBar />
-      <Paper>
-        <CreatePostComponent />
-      </Paper>
+      <CreatePostComponent />
       <StickyFooter />
     </Container>
   );

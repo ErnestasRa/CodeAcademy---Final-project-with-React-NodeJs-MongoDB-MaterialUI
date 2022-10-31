@@ -4,12 +4,13 @@ import RegisterPage from "./pages/auth/register-page";
 import LoginPage from "./pages/auth/login-page";
 import MainPage from "./pages/global/main-page";
 import ErrorPage from "./pages/global/error-page";
-import AllUsers from "./pages/global/all-users";
+import AllUsers from "./pages/global/users/all-users";
 import CreatePost from "./pages/global/create-tweet";
 import LogOut from "./pages/global/log-out";
 import SingleTweet from "./pages/global/single-tweet";
 import MainContext from "../src/context/main-context";
 import NotLoggedIn from "./pages/global/not-logged-in";
+import UserProfile from "./pages/global/users/user-profile-page";
 
 function App() {
   const [singleTweet, setSingleTweet] = React.useState([]);
@@ -17,6 +18,7 @@ function App() {
   const [users, setUsers] = React.useState([]);
   const [toggle, setToggle] = React.useState("none");
   const [tweetComments, setTweetComments] = React.useState([]);
+  const [userProfile, setUserProfile] = React.useState([]);
 
   return (
     <MainContext.Provider
@@ -26,11 +28,13 @@ function App() {
         setUsers,
         setToggle,
         setTweetComments,
+        setUserProfile,
         tweets,
         singleTweet,
         users,
         toggle,
         tweetComments,
+        userProfile,
       }}
     >
       <BrowserRouter>
@@ -41,6 +45,7 @@ function App() {
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/notloggedin" element={<NotLoggedIn />} />
           <Route path="/users" element={<AllUsers />} />
+          <Route path="/profile" element={<UserProfile />} />
           <Route path="/createpost" element={<CreatePost />} />
           <Route path="/logout" element={<LogOut />} />
           <Route path="/singletweet" element={<SingleTweet />} />

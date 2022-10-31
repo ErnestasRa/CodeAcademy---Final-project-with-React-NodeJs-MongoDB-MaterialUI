@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Container, Paper, Box } from "@mui/material";
+import { Container, Paper } from "@mui/material";
 import { get } from "../../functions/http";
 import UserProfileCard from "./user-card";
 import { useNavigate } from "react-router-dom";

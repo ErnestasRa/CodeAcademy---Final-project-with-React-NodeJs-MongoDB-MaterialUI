@@ -1,0 +1,20 @@
+import { Paper } from "@mui/material";
+import { Container } from "@mui/system";
+import React from "react";
+import UserProfileComponent from "../../../components/all-users/user-profile-component";
+import ResponsiveAppBar from "../../../components/app-bar";
+import StickyFooter from "../../../components/footer-component";
+
+const UserProfile = () => {
+  return (
+    <Container>
+      <ResponsiveAppBar />
+      <Paper>
+        <UserProfileComponent />
+      </Paper>
+      <StickyFooter />
+    </Container>
+  );
+};
+
+export default UserProfile;
