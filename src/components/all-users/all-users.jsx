@@ -18,6 +18,11 @@ const AllUsersComponent = () => {
     }
   };
 
+  const viewProfile = (id) => {
+    localStorage.setItem("userId", id);
+    navigate("/viewprofile");
+  };
+
   React.useEffect(() => {
     getAllUsers();
   }, []);
@@ -43,6 +48,7 @@ const AllUsersComponent = () => {
               image={user.image}
               lastName={user.lastName}
               key={i}
+              viewProfile={() => viewProfile(user._id)}
             />
           );
         })}

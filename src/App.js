@@ -11,6 +11,7 @@ import SingleTweet from "./pages/global/tweets/single-tweet";
 import MainContext from "../src/context/main-context";
 import NotLoggedIn from "./pages/errors/not-logged-in";
 import UserProfile from "./pages/global/users/user-profile-page";
+import ViewProfile from "./pages/global/users/view-profile";
 
 function App() {
   const [singleTweet, setSingleTweet] = React.useState([]);
@@ -20,6 +21,7 @@ function App() {
   const [tweetComments, setTweetComments] = React.useState([]);
   const [userProfile, setUserProfile] = React.useState([]);
   const [userProfileTweets, setUserProfileTweets] = React.useState([]);
+  const [userProfileView, setUserProfileView] = React.useState([]);
 
   return (
     <MainContext.Provider
@@ -31,6 +33,7 @@ function App() {
         setTweetComments,
         setUserProfile,
         setUserProfileTweets,
+        setUserProfileView,
         tweets,
         singleTweet,
         users,
@@ -38,6 +41,7 @@ function App() {
         tweetComments,
         userProfile,
         userProfileTweets,
+        userProfileView,
       }}
     >
       <BrowserRouter>
@@ -52,6 +56,7 @@ function App() {
           <Route path="/createpost" element={<CreatePost />} />
           <Route path="/logout" element={<LogOut />} />
           <Route path="/singletweet" element={<SingleTweet />} />
+          <Route path="/viewprofile" element={<ViewProfile />} />
         </Routes>
       </BrowserRouter>
     </MainContext.Provider>
