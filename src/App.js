@@ -21,6 +21,7 @@ function App() {
   const [tweetComments, setTweetComments] = React.useState([]);
   const [userProfile, setUserProfile] = React.useState([]);
   const [userProfileTweets, setUserProfileTweets] = React.useState([]);
+  const [userProfileComments, setUserProfileComments] = React.useState([]);
   const [userProfileView, setUserProfileView] = React.useState([]);
   const [userProfileViewTweets, setUserProfileViewTweets] = React.useState([]);
   const [userProfileViewComments, setUserProfileViewComments] = React.useState(
@@ -41,6 +42,7 @@ function App() {
         setTweetComments,
         setUserProfile,
         setUserProfileTweets,
+        setUserProfileComments,
         setUserProfileView,
         setUserProfileViewTweets,
         setUserProfileViewComments,
@@ -53,6 +55,7 @@ function App() {
         tweetComments,
         userProfile,
         userProfileTweets,
+        userProfileComments,
         userProfileView,
         userProfileViewTweets,
         userProfileViewComments,

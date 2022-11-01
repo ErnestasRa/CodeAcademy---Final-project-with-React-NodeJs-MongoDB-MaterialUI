@@ -30,7 +30,6 @@ const ViewProfileComponent = () => {
     };
 
     const res = await post("viewuserprofile", userData);
-    console.log(res.data);
     if (!res.error) {
       setUserProfileView(res.data.foundUser);
       setUserProfileViewTweets(res.data.foundUserPosts);
