@@ -18,8 +18,9 @@ const AllUsersComponent = () => {
     }
   };
 
-  const viewProfile = (id) => {
+  const viewProfile = (id, email) => {
     localStorage.setItem("userId", id);
+    localStorage.setItem("userEmail", email);
     navigate("/viewprofile");
   };
 
@@ -48,7 +49,7 @@ const AllUsersComponent = () => {
               image={user.image}
               lastName={user.lastName}
               key={i}
-              viewProfile={() => viewProfile(user._id)}
+              viewProfile={() => viewProfile(user._id, user.email)}
             />
           );
         })}

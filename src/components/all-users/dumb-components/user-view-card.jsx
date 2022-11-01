@@ -8,7 +8,14 @@ import {
   Typography,
 } from "@mui/material";
 
-const UserViewCard = ({ email, firstName, image, lastName }) => {
+const UserViewCard = ({
+  email,
+  firstName,
+  image,
+  lastName,
+  viewComments,
+  viewTweets,
+}) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -26,8 +33,12 @@ const UserViewCard = ({ email, firstName, image, lastName }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button onClick={() => viewComments()} size="small">
+          View Comments
+        </Button>
+        <Button onClick={() => viewTweets()} size="small">
+          View Tweets
+        </Button>
       </CardActions>
     </Card>
   );

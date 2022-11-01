@@ -22,6 +22,14 @@ function App() {
   const [userProfile, setUserProfile] = React.useState([]);
   const [userProfileTweets, setUserProfileTweets] = React.useState([]);
   const [userProfileView, setUserProfileView] = React.useState([]);
+  const [userProfileViewTweets, setUserProfileViewTweets] = React.useState([]);
+  const [userProfileViewComments, setUserProfileViewComments] = React.useState(
+    []
+  );
+  const [userProfileViewCommentsToggle, setUserProfileViewCommentsToggle] =
+    React.useState("none");
+  const [userProfileViewTweetsToggle, setUserProfileViewTweetsToggle] =
+    React.useState("none");
 
   return (
     <MainContext.Provider
@@ -34,6 +42,10 @@ function App() {
         setUserProfile,
         setUserProfileTweets,
         setUserProfileView,
+        setUserProfileViewTweets,
+        setUserProfileViewComments,
+        setUserProfileViewCommentsToggle,
+        setUserProfileViewTweetsToggle,
         tweets,
         singleTweet,
         users,
@@ -42,6 +54,10 @@ function App() {
         userProfile,
         userProfileTweets,
         userProfileView,
+        userProfileViewTweets,
+        userProfileViewComments,
+        userProfileViewCommentsToggle,
+        userProfileViewTweetsToggle,
       }}
     >
       <BrowserRouter>
