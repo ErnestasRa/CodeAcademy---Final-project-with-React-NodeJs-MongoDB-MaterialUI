@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import MainContext from "../../context/main-context";
 import { Box, Typography } from "@mui/material";
 
-//TODO: Fix Database to send user posts
 const ViewProfileComponent = () => {
   const userId = localStorage.getItem("userId");
   const userEmail = localStorage.getItem("userEmail");

@@ -16,6 +16,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { get } from "../functions/http";
+import colorBackground from "../styles/colors";
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -39,7 +40,10 @@ function ResponsiveAppBar() {
   }, []);
 
   return (
-    <AppBar position="sticky" sx={{ mt: "2vh" }}>
+    <AppBar
+      position="sticky"
+      sx={{ mt: "2vh", bgcolor: colorBackground.background.secondary.main }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <TwitterIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />

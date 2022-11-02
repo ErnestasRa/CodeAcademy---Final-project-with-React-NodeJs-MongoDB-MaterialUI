@@ -10,8 +10,6 @@ import {
 import SingleTweetComponent from "../../components/tweets/dumb-components/single-tweet";
 import { post } from "../../functions/http";
 import { useNavigate } from "react-router-dom";
-import ResponsiveAppBar from "../../components/app-bar";
-import StickyFooter from "../../components/footer-component";
 import MainContext from "../../context/main-context";
 
 const SingleTweet = () => {
@@ -72,7 +70,14 @@ const SingleTweet = () => {
     };
 
     const res = await post("addliketotweet", tweetData);
-    console.log(res);
+    if (res.error) {
+      navigate("/notloggedin");
+    }
+  };
+
+  const viewProfile = async (id) => {
+    localStorage.setItem("userId", id);
+    navigate("/viewprofile");
   };
 
   const toggleVisibility = () => {

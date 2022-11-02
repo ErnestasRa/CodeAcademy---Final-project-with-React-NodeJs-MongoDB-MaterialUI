@@ -12,6 +12,8 @@ import MainContext from "../src/context/main-context";
 import NotLoggedIn from "./pages/errors/not-logged-in";
 import UserProfile from "./pages/global/users/user-profile-page";
 import ViewProfile from "./pages/global/users/view-profile";
+import { Box } from "@mui/material";
+import colorBackground from "./styles/colors";
 
 function App() {
   const [singleTweet, setSingleTweet] = React.useState([]);
@@ -63,21 +65,23 @@ function App() {
         userProfileViewTweetsToggle,
       }}
     >
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/error" element={<ErrorPage />} />
-          <Route path="/notloggedin" element={<NotLoggedIn />} />
-          <Route path="/users" element={<AllUsers />} />
-          <Route path="/profile" element={<UserProfile />} />
-          <Route path="/createpost" element={<CreatePost />} />
-          <Route path="/logout" element={<LogOut />} />
-          <Route path="/singletweet" element={<SingleTweet />} />
-          <Route path="/viewprofile" element={<ViewProfile />} />
-        </Routes>
-      </BrowserRouter>
+      <Box>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/error" element={<ErrorPage />} />
+            <Route path="/notloggedin" element={<NotLoggedIn />} />
+            <Route path="/users" element={<AllUsers />} />
+            <Route path="/profile" element={<UserProfile />} />
+            <Route path="/createpost" element={<CreatePost />} />
+            <Route path="/logout" element={<LogOut />} />
+            <Route path="/singletweet" element={<SingleTweet />} />
+            <Route path="/viewprofile" element={<ViewProfile />} />
+          </Routes>
+        </BrowserRouter>
+      </Box>
     </MainContext.Provider>
   );
 }
