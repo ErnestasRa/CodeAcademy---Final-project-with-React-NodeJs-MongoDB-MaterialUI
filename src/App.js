@@ -13,7 +13,7 @@ import NotLoggedIn from "./pages/errors/not-logged-in";
 import UserProfile from "./pages/global/users/user-profile-page";
 import ViewProfile from "./pages/global/users/view-profile";
 import { Box } from "@mui/material";
-import colorBackground from "./styles/colors";
+import ViewMessages from "./pages/global/users/view-messages";
 
 function App() {
   const [singleTweet, setSingleTweet] = React.useState([]);
@@ -24,11 +24,13 @@ function App() {
   const [userProfile, setUserProfile] = React.useState([]);
   const [userProfileTweets, setUserProfileTweets] = React.useState([]);
   const [userProfileComments, setUserProfileComments] = React.useState([]);
+  const [userProfileMessages, setUserProfileMessages] = React.useState([]);
   const [userProfileView, setUserProfileView] = React.useState([]);
   const [userProfileViewTweets, setUserProfileViewTweets] = React.useState([]);
   const [userProfileViewComments, setUserProfileViewComments] = React.useState(
     []
   );
+
   const [userProfileViewCommentsToggle, setUserProfileViewCommentsToggle] =
     React.useState("none");
   const [userProfileViewTweetsToggle, setUserProfileViewTweetsToggle] =
@@ -45,6 +47,7 @@ function App() {
         setUserProfile,
         setUserProfileTweets,
         setUserProfileComments,
+        setUserProfileMessages,
         setUserProfileView,
         setUserProfileViewTweets,
         setUserProfileViewComments,
@@ -58,6 +61,7 @@ function App() {
         userProfile,
         userProfileTweets,
         userProfileComments,
+        userProfileMessages,
         userProfileView,
         userProfileViewTweets,
         userProfileViewComments,
@@ -79,6 +83,7 @@ function App() {
             <Route path="/logout" element={<LogOut />} />
             <Route path="/singletweet" element={<SingleTweet />} />
             <Route path="/viewprofile" element={<ViewProfile />} />
+            <Route path="/viewmessages" element={<ViewMessages />} />
           </Routes>
         </BrowserRouter>
       </Box>

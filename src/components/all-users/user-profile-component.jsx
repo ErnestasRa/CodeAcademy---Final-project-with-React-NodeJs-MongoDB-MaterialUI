@@ -13,19 +13,24 @@ const UserProfileComponent = () => {
     setUserProfile,
     setUserProfileTweets,
     setUserProfileComments,
+    setUserProfileMessages,
     setToggle,
     userProfile,
     userProfileTweets,
     userProfileComments,
+    userProfileMessages,
     toggle,
   } = React.useContext(MainContext);
 
   const getUserProfileInfo = async () => {
     const res = await get("loggedinuser");
+    console.log(res);
+
     if (!res.error) {
       setUserProfile(res.data.loggedInUser);
       setUserProfileTweets(res.data.loggedInUserPosts);
       setUserProfileComments(res.data.loggedInUserComments);
+      setUserProfileMessages(res.data.privateMessages);
     } else {
       navigate("/notloggedin");
     }
@@ -37,6 +42,9 @@ const UserProfileComponent = () => {
       userId: userProfile._id,
     };
     const res = await post("newprofilepic", newPicUrl);
+    urlRef.current.value = "";
+    setToggle("none");
+    getUserProfileInfo();
   };
 
   const deleteUserTweet = async (id) => {
@@ -47,6 +55,7 @@ const UserProfileComponent = () => {
     if (res.error) {
       navigate("/notloggedin");
     }
+    getUserProfileInfo();
   };
   const deleteUserComment = async (id) => {
     const CommentId = {
@@ -56,6 +65,7 @@ const UserProfileComponent = () => {
     if (res.error) {
       navigate("/notloggedin");
     }
+    getUserProfileInfo();
   };
 
   const toggleVisibility = () => {
@@ -66,9 +76,13 @@ const UserProfileComponent = () => {
     }
   };
 
+  const viewMessages = () => {
+    navigate("/viewmessages");
+  };
+
   React.useEffect(() => {
     getUserProfileInfo();
-  }, [userProfileTweets, userProfileComments]);
+  }, []);
 
   return (
     <Container>
@@ -83,6 +97,8 @@ const UserProfileComponent = () => {
           onClick={() => toggleVisibility()}
           inputRef={urlRef}
           changeUserProfilePic={() => changeUserProfilePic()}
+          userProfileMessages={userProfileMessages}
+          viewMessages={() => viewMessages()}
         />
       </Paper>
       <Paper>

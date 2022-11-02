@@ -19,6 +19,8 @@ const UserProfileCard = ({
   onClick,
   inputRef,
   changeUserProfilePic,
+  userProfileMessages,
+  viewMessages,
 }) => {
   const { toggle } = React.useContext(MainContext);
 
@@ -60,6 +62,9 @@ const UserProfileCard = ({
           />
           <Button onClick={() => changeUserProfilePic()}>Change</Button>
         </Box>
+        <Button onClick={() => viewMessages()}>
+          View messages ({userProfileMessages.length})
+        </Button>
       </CardActions>
     </Card>
   );

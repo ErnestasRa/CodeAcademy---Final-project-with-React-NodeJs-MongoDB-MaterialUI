@@ -8,6 +8,7 @@ import { Box, Typography } from "@mui/material";
 const ViewProfileComponent = () => {
   const userId = localStorage.getItem("userId");
   const userEmail = localStorage.getItem("userEmail");
+  const messageRef = React.useRef();
   const navigate = useNavigate();
   const {
     userProfileView,
@@ -36,6 +37,15 @@ const ViewProfileComponent = () => {
     } else {
       navigate("/notloggedin");
     }
+  };
+
+  const sendUserPrivateMessage = async () => {
+    const messageData = {
+      message: messageRef.current.value,
+      email: userEmail,
+    };
+    const res = await post("sendmessage", messageData);
+    console.log(res);
   };
 
   const toggleCommentsVisibility = () => {
@@ -74,6 +84,8 @@ const ViewProfileComponent = () => {
           lastName={userProfileView.lastName}
           viewComments={() => toggleCommentsVisibility()}
           viewTweets={() => toggleTweetsVisibility()}
+          messageRef={messageRef}
+          sendMessage={() => sendUserPrivateMessage()}
         />
       </Box>
       <Box>
