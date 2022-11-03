@@ -14,6 +14,7 @@ import {
   Link,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { blue } from "@mui/material/colors";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { get } from "../functions/http";
 import colorBackground from "../styles/colors";
@@ -42,11 +43,16 @@ function ResponsiveAppBar() {
   return (
     <AppBar
       position="sticky"
-      sx={{ mt: "2vh", bgcolor: colorBackground.background.secondary.main }}
+      sx={{ bgcolor: colorBackground.background.secondary.main }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <TwitterIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <TwitterIcon
+            sx={{
+              display: { xs: "none", md: "flex", color: "lightblue" },
+              mr: 1,
+            }}
+          />
           <Typography
             variant="h6"
             noWrap
@@ -54,11 +60,11 @@ function ResponsiveAppBar() {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: "none", md: "flex" },
+              display: { xs: "none", md: "flex", color: "lightblue" },
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "lightblue",
               textDecoration: "none",
             }}
           >

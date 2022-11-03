@@ -1,6 +1,6 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-import { blue } from "@mui/material/colors";
+import { blue, lightBlue } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import {
   Box,
@@ -14,6 +14,7 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
+const today = new Date();
 
 const PostComponent = ({
   firstName,
@@ -26,17 +27,26 @@ const PostComponent = ({
   userImage,
 }) => {
   return (
-    <Card sx={{ width: "70vh", display: "flex", flexDirection: "column" }}>
+    <Card
+      sx={{ width: "50vh", display: "flex", flexDirection: "column", gap: 2 }}
+    >
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
+          <Avatar sx={{ bgcolor: "lightblue" }} aria-label="recipe">
             {firstName.charAt(0)}
           </Avatar>
         }
         title={`${firstName} ${lastName}`}
         subheader={email}
       />
-      <CardMedia component="img" height="194" image={image} alt="none" />
+      <Typography>{today.getFullYear()}</Typography>
+      <CardMedia
+        component="img"
+        height="300"
+        image={image}
+        alt="none"
+        sx={{ objectFit: "scale-down" }}
+      />
       <CardContent>
         <Typography variant="body2">{tweet}</Typography>
       </CardContent>

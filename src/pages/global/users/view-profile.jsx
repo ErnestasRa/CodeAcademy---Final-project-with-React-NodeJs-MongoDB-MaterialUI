@@ -8,7 +8,7 @@ const ViewProfile = () => {
   return (
     <Container>
       <ResponsiveAppBar />
-      <Paper>
+      <Paper sx={{ height: "100vh" }}>
         <ViewProfileComponent />
       </Paper>
       <StickyFooter />

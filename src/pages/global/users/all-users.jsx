@@ -7,11 +7,13 @@ import { Container, Paper } from "@mui/material";
 const AllUsers = () => {
   return (
     <Container>
-      <ResponsiveAppBar />
-      <Paper>
+      <Paper
+        sx={{ display: "flex", flexDirection: "column", flexWrap: "wrap" }}
+      >
+        <ResponsiveAppBar />
         <AllUsersComponent />
+        <StickyFooter />
       </Paper>
-      <StickyFooter />
     </Container>
   );
 };

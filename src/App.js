@@ -14,6 +14,7 @@ import UserProfile from "./pages/global/users/user-profile-page";
 import ViewProfile from "./pages/global/users/view-profile";
 import { Box } from "@mui/material";
 import ViewMessages from "./pages/global/users/view-messages";
+import colorBackground from "./styles/colors";
 
 function App() {
   const [singleTweet, setSingleTweet] = React.useState([]);
@@ -69,7 +70,7 @@ function App() {
         userProfileViewTweetsToggle,
       }}
     >
-      <Box>
+      <Box sx={{ background: colorBackground.background.primary.main }}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<MainPage />} />

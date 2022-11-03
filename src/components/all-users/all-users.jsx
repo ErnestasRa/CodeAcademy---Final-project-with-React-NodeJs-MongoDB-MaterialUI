@@ -35,10 +35,7 @@ const AllUsersComponent = () => {
           display: "flex",
           flexDirection: "row",
           gap: 2,
-          mt: "5vh",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          alignItems: "center",
+          height: "100vh",
         }}
       >
         {users.map((user, i) => {

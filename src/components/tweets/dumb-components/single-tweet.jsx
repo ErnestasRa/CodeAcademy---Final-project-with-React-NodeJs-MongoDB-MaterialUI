@@ -15,7 +15,15 @@ const SingleTweetComponent = ({
   likeComment,
 }) => {
   return (
-    <Card sx={{ width: "70vh" }}>
+    <Card
+      sx={{
+        width: "50vh",
+        display: "flex",
+        flexDirection: "column",
+        gap: 2,
+        mt: "5vh",
+      }}
+    >
       <CardMedia
         component="img"
         height="140"

@@ -8,7 +8,7 @@ const UserProfile = () => {
   return (
     <Container>
       <ResponsiveAppBar />
-      <Paper>
+      <Paper sx={{ height: "100vh" }}>
         <UserProfileComponent />
       </Paper>
       <StickyFooter />

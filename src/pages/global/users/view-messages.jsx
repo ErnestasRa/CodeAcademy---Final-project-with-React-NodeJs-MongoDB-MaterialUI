@@ -28,7 +28,7 @@ const ViewMessages = () => {
   return (
     <Container>
       <ResponsiveAppBar />
-      <Paper>
+      <Paper sx={{ height: "100vh" }}>
         <ViewMessagesComponent />
       </Paper>
       <StickyFooter />

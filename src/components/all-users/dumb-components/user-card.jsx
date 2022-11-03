@@ -15,7 +15,7 @@ const UsersCard = ({ image, firstName, lastName, email, viewProfile }) => {
         display: "flex",
         flexDirection: "column",
         width: "30vh",
-        height: "40vh",
+        height: "50vh",
         mt: "10vh",
       }}
     >

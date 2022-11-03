@@ -38,6 +38,7 @@ const UserViewCard = ({
         display: "flex",
         flexDirection: "column",
         width: "30vh",
+        mt: "5vh",
       }}
     >
       <CardMedia
